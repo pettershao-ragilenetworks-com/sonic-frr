@@ -452,6 +452,9 @@ extern void static_zebra_route_add(struct route_node *rn,
 				api_nh->labels[i] = si->snh_label.label[i];
 		}
 		nh_num++;
+		if (nh_num >= MULTIPATH_NUM) {
+			break;
+		}
 	}
 
 	api.nexthop_num = nh_num;
